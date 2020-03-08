@@ -7,11 +7,16 @@
     android:background="@color/pink"
     tools:context=".GameOver">
 
-    <include
-        android:id="@+id/include"
-        android:layout="@layout/header_loose"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -20,10 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginTop="88dp"
+        android:autofillHints=""
         android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="Your Username"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textUsername" />
 
@@ -33,11 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:gravity="center"
-        android:text="Enter username to save :"
+        android:text="@string/fieldNick"
         android:textColor="@color/black"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_editor_absoluteX="-16dp" />
 
     <Button
@@ -47,7 +52,7 @@
         android:layout_marginStart="232dp"
         android:layout_marginTop="120dp"
         android:background="@drawable/rounded_btn_blue"
-        android:text="Menu"
+        android:text="@string/menu"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -59,7 +64,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="120dp"
         android:background="@drawable/rounded_btn_green"
-        android:text="Save"
+        android:text="@string/save"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/menu"
         app:layout_constraintHorizontal_bias="0.264"
@@ -73,11 +78,11 @@
         android:layout_marginTop="644dp"
         android:background="@color/red"
         android:gravity="center"
-        android:text="GAME OVER !"
+        android:text="@string/gameover"
         android:textColor="@color/black"
-        android:textSize="32dp"
+        android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_editor_absoluteX="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

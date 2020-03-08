@@ -25,13 +25,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginTop="88dp"
+        android:autofillHints=""
         android:ems="10"
         android:gravity="center"
         android:inputType="text"
-        android:text="@string/nickname"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textUsername"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/textUsername" />
 
     <TextView
         android:id="@+id/textUsername"

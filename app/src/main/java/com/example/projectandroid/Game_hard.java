@@ -7,12 +7,13 @@ import android.widget.Button;
 
 import java.util.Random;
 
-public class Game_medium extends AppCompatActivity {
+public class Game_hard extends AppCompatActivity {
 
     int score=0;
     Button item1;
     Button item2;
     Button item3;
+    Button item4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,12 @@ public class Game_medium extends AppCompatActivity {
         item3.setText(getRandomString());
         while(item3.getText() == item1.getText() && item3.getText() == item2.getText()){
             item2.setText(getRandomString());
+        }
+
+        item4 = findViewById(R.id.item4);
+        item4.setText(getRandomString());
+        while(item4.getText() == item1.getText() && item4.getText() == item2.getText() && item4.getText() == item3.getText()){
+            item4.setText(getRandomString());
         }
     }
 }

@@ -7,49 +7,40 @@
     android:background="@color/blue"
     tools:context=".Score">
 
-    <include
-        android:id="@+id/include"
-        android:layout="@layout/header"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listScore"
+        android:layout_width="304dp"
+        android:layout_height="522dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        android:scrollbars="vertical"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textScore" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkblue"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="37dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="96dp"
-        android:text="0"
-        android:textSize="28dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
-
-    <TextView
         android:id="@+id/textScore"
-        android:layout_width="200dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="68dp"
+        android:layout_width="251dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="28dp"
-        android:text="Highest Score : "
+        android:text="@string/titleScore"
         android:textColor="@color/black"
-        android:textSize="28dp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="288dp"
-        android:layout_height="544dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textScore"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <TextView
         android:id="@+id/list"
@@ -58,11 +49,11 @@
         android:layout_marginTop="644dp"
         android:background="@color/darkblue"
         android:gravity="center"
-        android:text="List Of Score"
+        android:text="@string/footer"
         android:textColor="@color/black"
-        android:textSize="32dp"
+        android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_editor_absoluteX="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
