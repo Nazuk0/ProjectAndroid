@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Game_hard_result"></activity>
         <activity android:name=".Game_medium_result" />
+        <activity android:name=".Game_easy_result" />
         <activity android:name=".Game_hard" />
         <activity android:name=".Game_medium" />
         <activity android:name=".Game_easy" />

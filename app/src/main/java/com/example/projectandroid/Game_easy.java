@@ -2,6 +2,7 @@ package com.example.projectandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,16 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 import java.util.Random;
@@ -31,18 +23,12 @@ public class Game_easy extends AppCompatActivity {
     private SQLiteDBHandler db;
 
     int score = 0;
-    int numberItem1;
-    int numberItem2;
+    int numberItem1, numberItem2;
 
-    Button item1;
-    Button item2;
+    Button item1, item2;
 
-    TextView resultItem1;
-    TextView resultItem2;
-    TextView scoring;
+    TextView resultItem1, resultItem2, scoring;
     ImageView resultImg;
-
-    boolean play = true;
 
     List<Items> items;
 
@@ -54,64 +40,78 @@ public class Game_easy extends AppCompatActivity {
         db = new SQLiteDBHandler(this);
         items = db.allItems();
 
-         for (Items i: items) {
-             Log.i("Name", i.getNameItem());
-             Log.i("NBR", i.getNumberTV());
-             Log.i("IMG", i.getUrlIMG());
+        for (Items i: items) {
+            Log.i("Name", i.getNameItem());
+            Log.i("NBR", i.getNumberTV());
+            Log.i("IMG", i.getUrlIMG());
         }
 
-        do {
-            item1 = findViewById(R.id.item1);
-            item1.setText(getRandomString());
-            Log.i("ITEM1", item1.getText().toString());
+        //All FindViewByID
+        item1 = findViewById(R.id.item1);
+        item2 = findViewById(R.id.item2);
+        resultItem1 = findViewById(R.id.resultTxt1);
+        resultItem2 = findViewById(R.id.resultTxt2);
+        scoring = findViewById(R.id.textView8);
 
-            item2 = findViewById(R.id.item2);
-            item2.setText(getRandomString());
-            Log.i("ITEM2",item2.getText().toString());
-            while (item2.getText() == item1.getText()) {
-                Log.i("ITEM22",item2.getText().toString());
-                item2.setText(getRandomString());
-            }
+        //ALL Setting
+        item1.setText(getRandomString());
+        Log.i("ITEM1", item1.getText().toString());
+        item2.setText(getRandomString());
+        Log.i("ITEM2", item2.getText().toString());
+        while (item2.getText() == item1.getText()) {
+             Log.i("ITEM22", item2.getText().toString());
+             item2.setText(getRandomString());
+        }
+        resultItem1.setText(db.getItem(item1.getText().toString()).getNumberTV());
+        resultItem2.setText(db.getItem(item2.getText().toString()).getNumberTV());
 
-            resultItem1 = findViewById(R.id.resultTxt1);
-            resultItem1.setText(db.getItem(item1.getText().toString()).getNumberTV());
-            numberItem1 = Integer.parseInt(resultItem1.getText().toString());
-            resultItem1.setVisibility(View.INVISIBLE);
-            Log.i("IMGRES1",resultItem1.getText().toString());
+        //View result
+        resultItem1.setVisibility(View.INVISIBLE);
+        resultItem2.setVisibility(View.INVISIBLE);
 
-            resultItem2 = findViewById(R.id.resultTxt2);
-            resultItem2.setText(db.getItem(item2.getText().toString()).getNumberTV());
-            numberItem2 = Integer.parseInt(resultItem2.getText().toString());
-            resultItem2.setVisibility(View.INVISIBLE);
-            Log.i("IMGRES2",resultItem2.getText().toString());
+        numberItem1 = Integer.parseInt(resultItem1.getText().toString());
+        Log.i("IMGRES1", resultItem1.getText().toString());
+        numberItem2 = Integer.parseInt(resultItem2.getText().toString());
+        Log.i("IMGRES2", resultItem2.getText().toString());
 
-            scoring = findViewById(R.id.textView8);
+        //Events
+        item1.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 String finalScore;
+                 //ResultEasy();
+                 Game(numberItem1, numberItem2);
+                 if (numberItem1 > numberItem2) {
+                     score += 1;
+                     finalScore = "Score : " + score;
+                     scoring.setText(finalScore);
+                     Log.i("SCOREING", scoring.getText().toString());
+                 } else {
+                     Intent over = new Intent(getApplicationContext(), GameOver.class);
+                     over.putExtra("score", score);
+                     startActivity(over);
+                 }
+             }
+        });
 
-
-            item1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Game(numberItem1, numberItem2);
-                    if (numberItem1 > numberItem2) {
-                        score += 1;
-                    } else {
-                        play = false;
-                    }
-                }
-            });
-
-            item2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Game(numberItem1, numberItem2);
-                    if (numberItem1 < numberItem2) {
-                        score += 1;
-                    } else {
-                        play = false;
-                    }
-                }
-            });
-        }while (play);
+        item2.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 String finalScore;
+                 //ResultEasy();
+                 Game(numberItem1, numberItem2);
+                 if (numberItem1 < numberItem2) {
+                     score += 1;
+                     finalScore = "Score : " + score;
+                     scoring.setText(finalScore);
+                     Log.i("SCOREING2", scoring.getText().toString());
+                 } else {
+                     Intent over = new Intent(getApplicationContext(), GameOver.class);
+                     over.putExtra("score", score);
+                     startActivity(over);
+                 }
+             }
+        });
     }
 
     public String getRandomString(){
@@ -140,4 +140,13 @@ public class Game_easy extends AppCompatActivity {
             Picasso.with(getApplicationContext()).load(db.getItem(item1.getText().toString()).getUrlIMG()).into(resultImg);
         }
     }
+
+    /*public void ResultEasy(){
+        Intent ResultPage = new Intent(getApplicationContext(), Game_easy_result.class);
+        ResultPage.putExtra("numberItem1", numberItem1);
+        ResultPage.putExtra("numberItem2", numberItem2);
+        ResultPage.putExtra("item1", item1.getText().toString());
+        ResultPage.putExtra("item2", item2.getText().toString());
+        startActivity(ResultPage);
+    }*/
 }
