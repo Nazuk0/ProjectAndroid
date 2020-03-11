@@ -10,16 +10,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    String nickanmes[], finalScore[];
+    private ArrayList<Players> listPlayersScore;
     Context context;
     int images[];
 
-    public MyAdapter(Context ct, String names[], String scores[], int img[]){
+    public MyAdapter(Context ct, ArrayList<Players> player, int img[]){
         context = ct;
-        nickanmes = names;
-        finalScore = scores;
+        listPlayersScore = player;
         images = img;
     }
 
@@ -34,17 +35,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+        final Players player = listPlayersScore.get(position);
 
-        holder.myName.setText(nickanmes[position]);
-        holder.myScore.setText(finalScore[position]);
+        holder.myName.setText(player.getMyName());
+        holder.myScore.setText(player.getMyScore());
         holder.myMedal.setImageResource(images[position]);
-
     }
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return listPlayersScore.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

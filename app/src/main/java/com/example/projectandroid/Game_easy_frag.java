@@ -125,7 +125,7 @@ public class Game_easy_frag extends Fragment {
 
                 } else {
                     Intent over = new Intent(getActivity().getApplicationContext(), GameOver.class);
-                    //over.putExtra("score", score);
+                    over.putExtra("score", String.valueOf(finalScore));
                     startActivity(over);
                 }
             }
@@ -144,7 +144,7 @@ public class Game_easy_frag extends Fragment {
                                             String.valueOf(finalScore));
                 } else {
                     Intent over = new Intent(getActivity().getApplicationContext(), GameOver.class);
-                    //over.putExtra("score", score);
+                    over.putExtra("score", String.valueOf(finalScore));
                     startActivity(over);
                 }
             }
