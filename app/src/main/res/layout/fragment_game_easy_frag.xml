@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Game_easy">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darkblue"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="256dp">
+
+            <TextView
+                android:id="@+id/resultTxt1"
+                android:layout_width="118dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="152dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/item1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/item1"
+                android:layout_width="120dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="152dp"
+                android:layout_marginTop="124dp"
+                android:background="@drawable/rounded_btn_game"
+                android:text="@string/item1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="243dp">
+
+            <Button
+                android:id="@+id/item2"
+                android:layout_width="120dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="152dp"
+                android:layout_marginTop="124dp"
+                android:background="@drawable/rounded_btn_game"
+                android:text="@string/item2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/resultTxt2"
+                android:layout_width="120dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="152dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/scoreStr"
+                android:layout_width="63dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="16dp"
+                android:text="Score :"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="86dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="72dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/textview"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/cupScore"
+                android:layout_width="65dp"
+                android:layout_height="58dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/cup"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

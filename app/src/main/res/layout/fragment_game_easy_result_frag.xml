@@ -25,63 +25,95 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="256dp">
+            android:layout_height="202dp">
+
+            <TextView
+                android:id="@+id/resultTxt1"
+                android:layout_width="118dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="144dp"
+                android:layout_marginBottom="36dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toTopOf="@+id/item1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
             <Button
                 android:id="@+id/item1"
                 android:layout_width="120dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="144dp"
-                android:layout_marginTop="104dp"
+                android:layout_marginTop="92dp"
                 android:background="@drawable/rounded_btn_game"
                 android:text="@string/item1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textItem1"
-                android:layout_width="113dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="148dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/textview"
-                app:layout_constraintBottom_toTopOf="@+id/item1"
-                app:layout_constraintStart_toStartOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/imgResult"
+            android:id="@+id/img"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars[0]"
-            android:contentDescription="TODO" />
+            android:layout_height="162dp"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="256dp">
+            android:layout_height="250dp">
 
             <Button
                 android:id="@+id/item2"
                 android:layout_width="120dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="144dp"
-                android:layout_marginTop="128dp"
+                android:layout_marginTop="100dp"
                 android:background="@drawable/rounded_btn_game"
                 android:text="@string/item2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textItem2"
-                android:layout_width="117dp"
-                android:layout_height="33dp"
+                android:id="@+id/resultTxt2"
+                android:layout_width="120dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="144dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/textview"
+                android:layout_marginTop="36dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/scoreStr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/scoreStr"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Next"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/score" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
