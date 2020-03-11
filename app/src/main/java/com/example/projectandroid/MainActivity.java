@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         leave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                finishAffinity();
                 System.exit(0);
             }
         });
