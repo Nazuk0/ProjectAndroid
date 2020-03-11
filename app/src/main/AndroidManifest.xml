@@ -3,6 +3,7 @@
     package="com.example.projectandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Game_hard_result"></activity>
-        <activity android:name=".Game_medium_result" />
-        <activity android:name=".Game_hard" />
-        <activity android:name=".Game_medium" />
-        <activity android:name=".Game_easy" />
-        <activity android:name=".Score" />
-        <activity android:name=".GameOver" />
+        <activity android:name=".HardGame.Game_hard_result"></activity>
+        <activity android:name=".MediumGame.Game_medium_result" />
+        <activity android:name=".HardGame.Game_hard" />
+        <activity android:name=".MediumGame.Game_medium" />
+        <activity android:name=".EasyGame.Game_easy" />
+        <activity android:name=".EndGame.Score" />
+        <activity android:name=".EndGame.GameOver" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

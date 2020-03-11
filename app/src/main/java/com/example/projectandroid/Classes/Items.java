@@ -1,4 +1,4 @@
-package com.example.projectandroid;
+package com.example.projectandroid.Classes;
 
 public class Items {
 

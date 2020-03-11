@@ -1,13 +1,21 @@
-package com.example.projectandroid;
+package com.example.projectandroid.EndGame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.projectandroid.Classes.Players;
+import com.example.projectandroid.MainActivity;
+import com.example.projectandroid.R;
+import com.example.projectandroid.Databases.SQLitePlayer;
 
 import java.util.List;
 
@@ -28,6 +36,7 @@ public class GameOver extends AppCompatActivity {
 
         dbPlayer = new SQLitePlayer(this);
         players = dbPlayer.allPlayers();
+        Vibrator vib;
 
         nickname = findViewById(R.id.username);
         menu = findViewById(R.id.menu);
@@ -36,11 +45,8 @@ public class GameOver extends AppCompatActivity {
         Bundle tabScore = getIntent().getExtras();
         score = tabScore.getString("score");
 
-        for (Players p: players) {
-            Log.i("Name", p.getMyName());
-            Log.i("Score", p.getMyScore());
-        }
-
+        vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vib.vibrate(1000);
 
         //Events
         menu.setOnClickListener(new View.OnClickListener() {
@@ -54,11 +60,10 @@ public class GameOver extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
                 String name = nickname.getText().toString();
 
-                player = new Players();
-                player.setMyName(name);
-                player.setMyScore(score);
+                player = new Players(name, score);
                 dbPlayer.addPlayer(player);
 
 

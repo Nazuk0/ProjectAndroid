@@ -1,8 +1,10 @@
-package com.example.projectandroid;
+package com.example.projectandroid.HardGame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.projectandroid.R;
 
 public class Game_hard_result extends AppCompatActivity {
 

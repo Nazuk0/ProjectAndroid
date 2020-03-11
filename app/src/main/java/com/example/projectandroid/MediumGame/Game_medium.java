@@ -1,9 +1,11 @@
-package com.example.projectandroid;
+package com.example.projectandroid.MediumGame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.projectandroid.R;
 
 import java.util.Random;
 

@@ -14,6 +14,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.projectandroid.Classes.Items;
+import com.example.projectandroid.Databases.SQLiteDBHandler;
+import com.example.projectandroid.EasyGame.Game_easy;
+import com.example.projectandroid.HardGame.Game_hard;
+import com.example.projectandroid.MediumGame.Game_medium;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,17 +29,18 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getName();
 
-    private SQLiteDBHandler db;
+    private SQLiteDBHandler db;                                                      //Databases Items
     private RequestQueue mRequestQueue;
-    private String keyAPI = "C69E953FB5D44CA080C74124F8B2C529&q";
-    private String api = "https://api.serpwow.com/live/search?api_key";
+    private String keyAPI = "C69E953FB5D44CA080C74124F8B2C529&q";                    //Key of API
+    private String api = "https://api.serpwow.com/live/search?api_key";              //url of API
 
-    Button easy;
-    Button medium;
-    Button hard;
+    private Button easy;
+    private Button medium;
+    private Button hard;
+    private Button leave;
 
-    List<Items> items;
-    String words[];
+    private List<Items> items;
+    private String words[];
 
 
     @Override
@@ -61,48 +67,51 @@ public class MainActivity extends AppCompatActivity {
         //if you want to delete all the List Items
         /*for (Items i: items) {
             db.deleteOne(i);
+            Log.i("item:",i.getNameItem());
         }*/
 
+        //affect ID of components
         easy = findViewById(R.id.easy);
+        medium = findViewById(R.id.medium);
+        hard = findViewById(R.id.hard);
+        leave = findViewById(R.id.quit);
+
+        //Events onClickButtons
         easy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivityEasy();
+                Intent easyPage = new Intent(getApplicationContext(), Game_easy.class);
+                startActivity(easyPage);
             }
         });
 
-        medium = findViewById(R.id.medium);
         medium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivityMedium();
+                Intent mediumPage = new Intent(getApplicationContext(), Game_medium.class);
+                startActivity(mediumPage);
             }
         });
 
-        hard = findViewById(R.id.hard);
         hard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivityHard();
+                Intent hardPage = new Intent(getApplicationContext(), Game_hard.class);
+                startActivity(hardPage);
+            }
+        });
+
+        leave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
             }
         });
     }
 
-    public void openActivityEasy(){
-        Intent easyPage = new Intent(getApplicationContext(), Game_easy.class);
-        startActivity(easyPage);
-    }
 
-    public void openActivityMedium(){
-        Intent mediumPage = new Intent(getApplicationContext(), Game_medium.class);
-        startActivity(mediumPage);
-    }
-
-    public void openActivityHard(){
-        Intent hardPage = new Intent(getApplicationContext(), Game_hard.class);
-        startActivity(hardPage);
-    }
-
+    //Request API
     private void sendAndRequestResponse(String url, final String item) {
         //RequestQueue initialized
         mRequestQueue = Volley.newRequestQueue(this);

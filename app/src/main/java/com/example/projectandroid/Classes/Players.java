@@ -1,4 +1,4 @@
-package com.example.projectandroid;
+package com.example.projectandroid.Classes;
 
 public class Players {
 
@@ -28,10 +28,5 @@ public class Players {
 
     public void setMyScore(String myScore) {
         this.myScore = myScore;
-    }
-
-    @Override
-    public String toString() {
-        return "Score :"+ this.myScore+" Name :" + this.myName;
     }
 }

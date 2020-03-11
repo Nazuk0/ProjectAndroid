@@ -1,12 +1,14 @@
-package com.example.projectandroid;
+package com.example.projectandroid.EasyGame;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.projectandroid.R;
 
-public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsgListenner, Game_easy_result_frag.returnScore{
+
+public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsgListenner, Game_easy_result_frag.returnScore {
 
     private Game_easy_frag gameFrag;
     private Game_easy_result_frag resultFrag;

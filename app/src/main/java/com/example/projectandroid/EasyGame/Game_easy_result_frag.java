@@ -1,4 +1,4 @@
-package com.example.projectandroid;
+package com.example.projectandroid.EasyGame;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.projectandroid.R;
+import com.example.projectandroid.Databases.SQLiteDBHandler;
 import com.squareup.picasso.Picasso;
 
 public class Game_easy_result_frag extends Fragment {
@@ -32,17 +32,14 @@ public class Game_easy_result_frag extends Fragment {
     private Button nextButton;
     private double numberItem1;
     private double numberItem2;
-
-    returnScore sendScore;
+    private returnScore sendScore;
 
     public interface returnScore{
 
         void ResultScore(String score);
     }
 
-    public Game_easy_result_frag() {
-        // Required empty public constructor
-    }
+    public Game_easy_result_frag() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +49,7 @@ public class Game_easy_result_frag extends Fragment {
 
         db = new SQLiteDBHandler(getActivity());
 
+        //Get ID of components
         btnItem1 = view.findViewById(R.id.item1);
         btnItem2 = view.findViewById(R.id.item2);
         nbrItem1 = view.findViewById(R.id.resultTxt1);
@@ -60,8 +58,8 @@ public class Game_easy_result_frag extends Fragment {
         resultImg = view.findViewById(R.id.img);
         nextButton = view.findViewById(R.id.btnNext);
 
+        //Get all info from game easy
         final Bundle bundle = getArguments();
-
         String button1 = bundle.getString("Item1");
         btnItem1.setText(button1);
         String button2 = bundle.getString("Item2");
@@ -73,11 +71,14 @@ public class Game_easy_result_frag extends Fragment {
         String finalScore = bundle.getString("FinalScore");
         scoring.setText(finalScore);
 
+        //String to Double
         numberItem1 = Double.valueOf(nbrItem1.getText().toString());
         numberItem2 = Double.valueOf(nbrItem2.getText().toString());
 
+        //Comparee
         Game(numberItem1, numberItem2);
 
+        //Event onClick
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game_easy">
+    tools:context=".EasyGame.Game_easy">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,6 +57,7 @@
             android:id="@+id/img"
             android:layout_width="match_parent"
             android:layout_height="162dp"
+            android:contentDescription="@string/todo"
             tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -94,7 +95,9 @@
                 android:id="@+id/scoreStr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Score :"
+                android:layout_marginStart="172dp"
+                android:text="@string/scoreTxt"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -102,7 +105,7 @@
                 android:id="@+id/score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toEndOf="@+id/scoreStr"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,7 +114,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Next"
+                android:text="@string/next"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_btn_game"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/score" />
         </androidx.constraintlayout.widget.ConstraintLayout>

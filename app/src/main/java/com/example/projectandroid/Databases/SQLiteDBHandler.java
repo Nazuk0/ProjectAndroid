@@ -1,10 +1,12 @@
-package com.example.projectandroid;
+package com.example.projectandroid.Databases;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.projectandroid.Classes.Items;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -97,22 +99,5 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
         // insert
         db.insert(TABLE_NAME,null, values);
         db.close();
-    }
-
-    public int updateItems(Items item) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(KEY_NAME, item.getNameItem());
-        values.put(KEY_NUMBER, item.getNumberTV());
-        values.put(KEY_IMG, item.getUrlIMG());
-
-        int i = db.update(TABLE_NAME, // table
-                values, // column/value
-                "name = ?", // selections
-                new String[] { String.valueOf(item.getNameItem()) });
-
-        db.close();
-
-        return i;
     }
 }

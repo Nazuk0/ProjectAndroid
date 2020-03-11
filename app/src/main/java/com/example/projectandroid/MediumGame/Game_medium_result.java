@@ -1,8 +1,10 @@
-package com.example.projectandroid;
+package com.example.projectandroid.MediumGame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.projectandroid.R;
 
 public class Game_medium_result extends AppCompatActivity {
 

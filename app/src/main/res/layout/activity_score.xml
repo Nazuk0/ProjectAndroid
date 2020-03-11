@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".Score">
+    tools:context=".EndGame.Score">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listScore"
-        android:layout_width="304dp"
-        android:layout_height="522dp"
+        android:layout_width="297dp"
+        android:layout_height="469dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="28dp"
         android:scrollbars="vertical"
@@ -55,5 +55,16 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_editor_absoluteX="-16dp" />
+
+    <Button
+        android:id="@+id/btnMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu"
+        android:background="@drawable/rounded_btn_game"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listScore" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

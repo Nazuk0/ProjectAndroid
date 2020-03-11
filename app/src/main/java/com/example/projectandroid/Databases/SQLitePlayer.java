@@ -1,4 +1,4 @@
-package com.example.projectandroid;
+package com.example.projectandroid.Databases;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.projectandroid.Classes.Players;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 public class SQLitePlayer extends SQLiteOpenHelper {
 
@@ -94,21 +94,5 @@ public class SQLitePlayer extends SQLiteOpenHelper {
         // insert
         db.insert(TABLE_NAME,null, values);
         db.close();
-    }
-
-    public int updateItems(Players player) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(KEY_NAME, player.getMyName());
-        values.put(KEY_NUMBER, player.getMyScore());
-
-        int i = db.update(TABLE_NAME, // table
-                values, // column/value
-                "name = ?", // selections
-                new String[] { String.valueOf(player.getMyName()) });
-
-        db.close();
-
-        return i;
     }
 }

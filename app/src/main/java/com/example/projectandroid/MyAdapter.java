@@ -10,13 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projectandroid.Classes.Players;
+
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    private ArrayList<Players> listPlayersScore;
-    Context context;
-    int images[];
+    private ArrayList<Players> listPlayersScore;        //list of players
+    private Context context;
+    int images[];                                       //list of rank
 
     public MyAdapter(Context ct, ArrayList<Players> player, int img[]){
         context = ct;

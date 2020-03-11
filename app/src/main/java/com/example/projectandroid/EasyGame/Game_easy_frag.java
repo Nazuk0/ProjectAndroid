@@ -1,4 +1,4 @@
-package com.example.projectandroid;
+package com.example.projectandroid.EasyGame;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +13,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.projectandroid.EndGame.GameOver;
+import com.example.projectandroid.Classes.Items;
+import com.example.projectandroid.R;
+import com.example.projectandroid.Databases.SQLiteDBHandler;
+import com.example.projectandroid.EndGame.Score;
+
 import java.util.List;
 import java.util.Random;
+
 
 public class Game_easy_frag extends Fragment {
 
     private SQLiteDBHandler db;
 
-    double numberItem1;
-    double numberItem2;
+    private double numberItem1;
+    private double numberItem2;
 
     private Button btnItem1;
     private Button btnItem2;
@@ -37,18 +42,15 @@ public class Game_easy_frag extends Fragment {
     private int finalScore;
     private String sc;
 
-    List<Items> items;
-
-    onMsgListenner msgListenner;
+    private List<Items> items;
+    private onMsgListenner msgListenner;
 
     public interface onMsgListenner{
 
         void ResultEasy(String btnItem1, String btnItem2, String nbrItem1, String nbrItem2, String score);
     }
 
-    public Game_easy_frag() {
-        // Required empty public constructor
-    }
+    public Game_easy_frag() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,28 +70,18 @@ public class Game_easy_frag extends Fragment {
         scoring = view.findViewById(R.id.score);
         cup = view.findViewById(R.id.cupScore);
 
-        /*for (Items i: items) {
-            Log.i("Name", i.getNameItem());
-            Log.i("NBR", i.getNumberTV());
-            Log.i("IMG", i.getUrlIMG());
-        }*/
-
         //ALL Setting
         scoreString.setText("Score :");
         btnItem1.setText(getRandomString());
-        Log.i("ITEM1", btnItem1.getText().toString());
         btnItem2.setText(getRandomString());
-        Log.i("ITEM2", btnItem2.getText().toString());
         while (btnItem2.getText().toString().equals(btnItem1.getText().toString())) {
-            Log.i("ITEM2", btnItem2.getText().toString());
             btnItem2.setText(getRandomString());
         }
 
         nbrItem1.setText(db.getItem(btnItem1.getText().toString()).getNumberTV());
-        Log.i("IMGRES1_STR", nbrItem1.getText().toString());
         nbrItem2.setText(db.getItem(btnItem2.getText().toString()).getNumberTV());
-        Log.i("IMGRES2_STR", nbrItem2.getText().toString());
 
+        //Get new score of result fragment
         final Bundle bundleScore = getArguments();
 
         if(bundleScore != null){
@@ -102,7 +94,7 @@ public class Game_easy_frag extends Fragment {
             scoring.setText(sc);
         }
 
-
+        //String to Double
         numberItem1 = Double.valueOf(nbrItem1.getText().toString());
         numberItem2 = Double.valueOf(nbrItem2.getText().toString());
 
@@ -110,7 +102,7 @@ public class Game_easy_frag extends Fragment {
         nbrItem1.setVisibility(View.INVISIBLE);
         nbrItem2.setVisibility(View.INVISIBLE);
 
-        //Events
+        //Events onClickButtons
         btnItem1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
