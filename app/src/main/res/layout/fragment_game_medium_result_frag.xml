@@ -25,10 +25,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="256dp">
+            android:layout_height="200dp">
 
             <Button
-                android:id="@+id/item1"
+                android:id="@+id/item1Med"
                 android:layout_width="120dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="152dp"
@@ -39,28 +39,31 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/resultTxt1Med"
                 android:layout_width="119dp"
                 android:layout_height="36dp"
-                android:text="TextView"
-                tools:layout_editor_absoluteX="150dp"
-                tools:layout_editor_absoluteY="65dp" />
+                android:layout_marginStart="152dp"
+                android:layout_marginTop="72dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/imgResult"
+            android:id="@+id/imgResultMed"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars[0]"
-            android:contentDescription="TODO" />
+            android:layout_height="162dp"
+            android:contentDescription="@string/todo"
+            tools:srcCompat="@tools:sample/avatars[0]" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="256dp">
+            android:layout_height="250dp">
 
             <Button
-                android:id="@+id/item2"
+                android:id="@+id/item2Med"
                 android:layout_width="120dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="48dp"
@@ -71,7 +74,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/item3"
+                android:id="@+id/item3Med"
                 android:layout_width="120dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="124dp"
@@ -82,20 +85,61 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/resultTxt2Med"
                 android:layout_width="119dp"
                 android:layout_height="36dp"
-                android:text="TextView"
-                tools:layout_editor_absoluteX="51dp"
-                tools:layout_editor_absoluteY="187dp" />
+                android:layout_marginStart="48dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/resultTxt3Med"
                 android:layout_width="119dp"
                 android:layout_height="36dp"
-                android:text="TextView"
-                tools:layout_editor_absoluteX="244dp"
-                tools:layout_editor_absoluteY="187dp" />
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/scoreStr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="172dp"
+                android:text="@string/scoreTxt"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/scoreStr"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/next"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_btn_game"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/score" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

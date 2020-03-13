@@ -1,4 +1,4 @@
-package com.example.projectandroid.EasyGame;
+package com.example.projectandroid.MediumGame;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,38 +19,44 @@ import com.example.projectandroid.R;
 import com.example.projectandroid.Databases.SQLiteDBHandler;
 import com.squareup.picasso.Picasso;
 
-public class Game_easy_result_frag extends Fragment {
+public class Game_medium_result_frag extends Fragment {
     // TODO: Rename and change types of parameters
     private SQLiteDBHandler db;
 
     private Button btnItem1;
     private Button btnItem2;
+    private Button btnItem3;
     private TextView nbrItem1;
     private TextView nbrItem2;
+    private TextView nbrItem3;
     private TextView scoring;
     private ImageView resultImg;
     private Button nextButton;
     private double numberItem1;
     private double numberItem2;
+    private double numberItem3;
     private returnScore sendScore;
 
-    public Game_easy_result_frag() {}
+    public Game_medium_result_frag() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_game_easy_result_frag, container, false);
+        View view =  inflater.inflate(R.layout.fragment_game_medium_result_frag, container, false);
 
         db = new SQLiteDBHandler(getActivity());
 
         //Get ID of components
-        btnItem1 = view.findViewById(R.id.item1);
-        btnItem2 = view.findViewById(R.id.item2);
-        nbrItem1 = view.findViewById(R.id.resultTxt1);
-        nbrItem2 = view.findViewById(R.id.resultTxt2);
+        btnItem1 = view.findViewById(R.id.item1Med);
+        btnItem2 = view.findViewById(R.id.item2Med);
+        btnItem3 = view.findViewById(R.id.item3Med);
+
+        nbrItem1 = view.findViewById(R.id.resultTxt1Med);
+        nbrItem2 = view.findViewById(R.id.resultTxt2Med);
+        nbrItem3 = view.findViewById(R.id.resultTxt3Med);
         scoring = view.findViewById(R.id.score);
-        resultImg = view.findViewById(R.id.img);
+        resultImg = view.findViewById(R.id.imgResultMed);
         nextButton = view.findViewById(R.id.btnNext);
 
         //Get all info from game easy
@@ -58,19 +65,26 @@ public class Game_easy_result_frag extends Fragment {
         btnItem1.setText(button1);
         String button2 = bundle.getString("Item2");
         btnItem2.setText(button2);
+        String button3 = bundle.getString("Item3");
+        btnItem3.setText(button3);
         String textbtn1 = bundle.getString("Textbtn1");
         nbrItem1.setText(textbtn1);
         String textbtn2 = bundle.getString("Textbtn2");
         nbrItem2.setText(textbtn2);
+        String textbtn3 = bundle.getString("Textbtn3");
+        nbrItem3.setText(textbtn3);
+        Log.i("333",nbrItem3.getText().toString());
         String finalScore = bundle.getString("FinalScore");
         scoring.setText(finalScore);
 
         //String to Double
         numberItem1 = Double.valueOf(nbrItem1.getText().toString());
         numberItem2 = Double.valueOf(nbrItem2.getText().toString());
+        numberItem3 = Double.valueOf(nbrItem3.getText().toString());
+        Log.i("444",String.valueOf(numberItem3));
 
         //Compare
-        GameEz(numberItem1, numberItem2);
+        Game(numberItem1, numberItem2, numberItem3);
 
         //Event onClick
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -109,21 +123,33 @@ public class Game_easy_result_frag extends Fragment {
         void ResultScore(String score);
     }
 
-    public void GameEz(double a, double b) {
+    public void Game(double a, double b, double c) {
 
         nbrItem1.setVisibility(View.VISIBLE);
         nbrItem2.setVisibility(View.VISIBLE);
+        nbrItem3.setVisibility(View.VISIBLE);
 
-
-        if(a < b) {
+        if((a > b) && (a > c)){
+            btnItem1.setBackgroundColor(Color.GREEN);
+            btnItem2.setBackgroundColor(Color.RED);
+            btnItem3.setBackgroundColor(Color.RED);
+            Log.i("String3",db.getItem(btnItem3.getText().toString()).getUrlIMG());
+            Picasso.with(getActivity().getApplicationContext()).load(db.getItem(btnItem1.getText().toString()).getUrlIMG()).into(resultImg);
+        }
+        if((b > a) && (b > c)) {
             btnItem1.setBackgroundColor(Color.RED);
             btnItem2.setBackgroundColor(Color.GREEN);
+            btnItem3.setBackgroundColor(Color.RED);
+            Log.i("String2",db.getItem(btnItem3.getText().toString()).getUrlIMG());
             Picasso.with(getActivity().getApplicationContext()).load(db.getItem(btnItem2.getText().toString()).getUrlIMG()).into(resultImg);
 
-        }else{
+        }
+        if((c > a) && (c > b)){
+            btnItem1.setBackgroundColor(Color.RED);
             btnItem2.setBackgroundColor(Color.RED);
-            btnItem1.setBackgroundColor(Color.GREEN);
-            Picasso.with(getActivity().getApplicationContext()).load(db.getItem(btnItem1.getText().toString()).getUrlIMG()).into(resultImg);
+            btnItem3.setBackgroundColor(Color.GREEN);
+            Log.i("String",db.getItem(btnItem3.getText().toString()).getUrlIMG());
+            Picasso.with(getActivity().getApplicationContext()).load(db.getItem(btnItem3.getText().toString()).getUrlIMG()).into(resultImg);
         }
     }
 }

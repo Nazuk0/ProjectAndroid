@@ -12,14 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HardGame.Game_hard_result"></activity>
-        <activity android:name=".MediumGame.Game_medium_result" />
-        <activity android:name=".HardGame.Game_hard" />
-        <activity android:name=".MediumGame.Game_medium" />
-        <activity android:name=".EasyGame.Game_easy" />
-        <activity android:name=".EndGame.Score" />
-        <activity android:name=".EndGame.GameOver" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".HardGame.Game_hard_result" android:screenOrientation="portrait"/>
+        <activity android:name=".HardGame.Game_hard" android:screenOrientation="portrait"/>
+        <activity android:name=".MediumGame.Game_medium" android:screenOrientation="portrait"/>
+        <activity android:name=".EasyGame.Game_easy" android:screenOrientation="portrait"/>
+        <activity android:name=".EndGame.Score" android:screenOrientation="portrait"/>
+        <activity android:name=".EndGame.GameOver" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

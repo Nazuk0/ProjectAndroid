@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.example.projectandroid.R;
 
 
-public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsgListenner, Game_easy_result_frag.returnScore {
+public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsgListennerEz, Game_easy_result_frag.returnScore {
 
     private Game_easy_frag gameFrag;
     private Game_easy_result_frag resultFrag;
@@ -20,7 +20,7 @@ public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsg
         gameFrag = new Game_easy_frag();
         resultFrag = new Game_easy_result_frag();
 
-        if(findViewById(R.id.frag_game) != null){
+        if(findViewById(R.id.frag_gameEz) != null){
 
             if(savedInstanceState!= null){
 
@@ -29,7 +29,7 @@ public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsg
 
             Game_easy_frag GEF= new Game_easy_frag();
 
-            getSupportFragmentManager().beginTransaction().add(R.id.frag_game, GEF, null).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.frag_gameEz, GEF, null).commit();
         }
     }
 
@@ -45,7 +45,7 @@ public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsg
 
         resultFrag.setArguments(bundle);
 
-        FragmentTransaction fragTransac = getSupportFragmentManager().beginTransaction().replace(R.id.frag_game,resultFrag, null);
+        FragmentTransaction fragTransac = getSupportFragmentManager().beginTransaction().replace(R.id.frag_gameEz,resultFrag, null);
         fragTransac.addToBackStack(null);
         fragTransac.commit();
     }
@@ -58,7 +58,7 @@ public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsg
 
         gameFrag.setArguments(bundleScore);
 
-        FragmentTransaction fragTransact = getSupportFragmentManager().beginTransaction().replace(R.id.frag_game,gameFrag, null);
+        FragmentTransaction fragTransact = getSupportFragmentManager().beginTransaction().replace(R.id.frag_gameEz,gameFrag, null);
         fragTransact.addToBackStack(null);
         fragTransact.commit();
 
