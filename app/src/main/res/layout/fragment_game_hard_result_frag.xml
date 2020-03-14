@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EasyGame.Game_easy">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/blue">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darkblue"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <Button
+                android:id="@+id/item1Hard"
+                android:layout_width="120dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="124dp"
+                android:background="@drawable/rounded_btn_game"
+                android:text="@string/item1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/item2Hard"
+                android:layout_width="120dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="124dp"
+                android:background="@drawable/rounded_btn_game"
+                android:text="@string/item2"
+                app:layout_constraintStart_toEndOf="@+id/item1Hard"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/resultTxt1Hard"
+                android:layout_width="119dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginBottom="24dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toTopOf="@+id/item1Hard"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/resultTxt2Hard"
+                android:layout_width="119dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="228dp"
+                android:layout_marginBottom="24dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toTopOf="@+id/item2Hard"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imgResultHard"
+            android:layout_width="match_parent"
+            android:layout_height="162dp"
+            tools:src="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <Button
+                android:id="@+id/item3Hard"
+                android:layout_width="120dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="124dp"
+                android:background="@drawable/rounded_btn_game"
+                android:text="@string/item3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/item4Hard"
+                android:layout_width="120dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="124dp"
+                android:background="@drawable/rounded_btn_game"
+                android:text="@string/item4"
+                app:layout_constraintStart_toEndOf="@+id/item3Hard"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/resultTxt3Hard"
+                android:layout_width="119dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="24dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item3Hard" />
+
+            <TextView
+                android:id="@+id/resultTxt4Hard"
+                android:layout_width="119dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="228dp"
+                android:layout_marginTop="24dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item4Hard" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/scoreStr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="172dp"
+                android:text="@string/scoreTxt"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/scoreStr"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/next"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_btn_game"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/score" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
