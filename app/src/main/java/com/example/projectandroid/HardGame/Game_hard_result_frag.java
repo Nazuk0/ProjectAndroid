@@ -6,8 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -131,6 +129,7 @@ public class Game_hard_result_frag extends Fragment {
         void ResultScore(String score);
     }
 
+    //Compare number between them and display in green the right answer
     public void Game(double a, double b, double c, double d) {
 
         nbrItem1.setVisibility(View.VISIBLE);
@@ -142,14 +141,12 @@ public class Game_hard_result_frag extends Fragment {
             btnItem1.setBackgroundColor(Color.GREEN);
             btnItem2.setBackgroundColor(Color.RED);
             btnItem3.setBackgroundColor(Color.RED);
-            Log.i("String3",db.getItem(btnItem3.getText().toString()).getUrlIMG());
             Picasso.with(getActivity().getApplicationContext()).load(db.getItem(btnItem1.getText().toString()).getUrlIMG()).into(resultImg);
         }
         if((b > a) && (b > c) && (b > d)) {
             btnItem1.setBackgroundColor(Color.RED);
             btnItem2.setBackgroundColor(Color.GREEN);
             btnItem3.setBackgroundColor(Color.RED);
-            Log.i("String2",db.getItem(btnItem3.getText().toString()).getUrlIMG());
             Picasso.with(getActivity().getApplicationContext()).load(db.getItem(btnItem2.getText().toString()).getUrlIMG()).into(resultImg);
 
         }
@@ -157,7 +154,6 @@ public class Game_hard_result_frag extends Fragment {
             btnItem1.setBackgroundColor(Color.RED);
             btnItem2.setBackgroundColor(Color.RED);
             btnItem3.setBackgroundColor(Color.GREEN);
-            Log.i("String",db.getItem(btnItem3.getText().toString()).getUrlIMG());
             Picasso.with(getActivity().getApplicationContext()).load(db.getItem(btnItem3.getText().toString()).getUrlIMG()).into(resultImg);
         }
         if((d > a) && (d > b) && (d > c)){
@@ -165,7 +161,6 @@ public class Game_hard_result_frag extends Fragment {
             btnItem2.setBackgroundColor(Color.RED);
             btnItem3.setBackgroundColor(Color.RED);
             btnItem4.setBackgroundColor(Color.GREEN);
-            Log.i("String4",db.getItem(btnItem4.getText().toString()).getUrlIMG());
             Picasso.with(getActivity().getApplicationContext()).load(db.getItem(btnItem4.getText().toString()).getUrlIMG()).into(resultImg);
         }
     }

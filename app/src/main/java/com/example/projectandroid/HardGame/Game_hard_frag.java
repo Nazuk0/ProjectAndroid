@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,34 +74,25 @@ public class Game_hard_frag extends Fragment {
         //ALL Setting
         scoreString.setText("Score :");
         btnItem1.setText(getRandomString());
-        Log.i("Item1",btnItem1.getText().toString());
         btnItem2.setText(getRandomString());
-        Log.i("Item2",btnItem2.getText().toString());
         while ((btnItem2.getText().toString()).equals(btnItem1.getText().toString()) || (btnItem2.getText().toString()).equals(btnItem3.getText().toString()) || (btnItem4.getText().toString()).equals(btnItem3.getText().toString())){
-            Log.i("Item2Inside",btnItem3.getText().toString());
-            btnItem2.setText(getRandomString());
+            btnItem2.setText(getRandomString());                            //For duplicate
         }
         btnItem3.setText(getRandomString());
-        Log.i("Item3",btnItem3.getText().toString());
+
         while ((btnItem3.getText().toString()).equals(btnItem1.getText().toString()) || (btnItem3.getText().toString()).equals(btnItem2.getText().toString()) || (btnItem4.getText().toString()).equals(btnItem3.getText().toString())){
-            Log.i("Item3Inside",btnItem3.getText().toString());
-            btnItem3.setText(getRandomString());
+            btnItem3.setText(getRandomString());                            //For duplicate
         }
         btnItem4.setText(getRandomString());
-        Log.i("Item4",btnItem4.getText().toString());
+
         while ((btnItem4.getText().toString()).equals(btnItem1.getText().toString()) || (btnItem4.getText().toString()).equals(btnItem2.getText().toString()) || (btnItem4.getText().toString()).equals(btnItem3.getText().toString())){
-            Log.i("Item4Inside",btnItem4.getText().toString());
-            btnItem4.setText(getRandomString());
+            btnItem4.setText(getRandomString());                             //For duplicate
         }
 
         nbrItem1.setText(db.getItem(btnItem1.getText().toString()).getNumberTV());
-        Log.i("Num1",nbrItem1.getText().toString());
         nbrItem2.setText(db.getItem(btnItem2.getText().toString()).getNumberTV());
-        Log.i("Num2",nbrItem2.getText().toString());
         nbrItem3.setText(db.getItem(btnItem3.getText().toString()).getNumberTV());
-        Log.i("Num3",nbrItem3.getText().toString());
         nbrItem4.setText(db.getItem(btnItem4.getText().toString()).getNumberTV());
-        Log.i("Num4",nbrItem4.getText().toString());
 
         //Get new score of result fragment
         final Bundle bundleScore = getArguments();
@@ -137,6 +126,7 @@ public class Game_hard_frag extends Fragment {
                 if ((numberItem1 > numberItem2) && (numberItem1 > numberItem3) && (numberItem1 > numberItem4)) {
                     finalScore++;
 
+                    //Send data for framgent result
                     msgListennerHard.ResultHard(btnItem1.getText().toString(),
                             btnItem2.getText().toString(),
                             btnItem3.getText().toString(),
@@ -161,6 +151,7 @@ public class Game_hard_frag extends Fragment {
                 if ((numberItem2 > numberItem1) && (numberItem2 > numberItem3) && (numberItem2 > numberItem4)) {
                     finalScore++;
 
+                    //Send data for framgent result
                     msgListennerHard.ResultHard(btnItem1.getText().toString(),
                             btnItem2.getText().toString(),
                             btnItem3.getText().toString(),
@@ -184,6 +175,7 @@ public class Game_hard_frag extends Fragment {
                 if ((numberItem3 > numberItem1) && (numberItem3 > numberItem2) && (numberItem3 > numberItem4)) {
                     finalScore++;
 
+                    //Send data for framgent result
                     msgListennerHard.ResultHard(btnItem1.getText().toString(),
                             btnItem2.getText().toString(),
                             btnItem3.getText().toString(),
@@ -207,6 +199,7 @@ public class Game_hard_frag extends Fragment {
                 if ((numberItem4 > numberItem1) && (numberItem4 > numberItem2) && (numberItem4 > numberItem3)) {
                     finalScore++;
 
+                    //Send data for framgent result
                     msgListennerHard.ResultHard(btnItem1.getText().toString(),
                             btnItem2.getText().toString(),
                             btnItem3.getText().toString(),
@@ -224,6 +217,7 @@ public class Game_hard_frag extends Fragment {
             }
         });
 
+        //Show the tab of high score
         cup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -261,6 +255,7 @@ public class Game_hard_frag extends Fragment {
         void ResultHard(String btnItem1, String btnItem2, String btnItem3, String btnItem4, String nbrItem1, String nbrItem2, String nbrItem3, String nbrItem4, String score);
     }
 
+    //Method to give random string from array-list in xml
     public String getRandomString(){
         String[] array = getResources().getStringArray(R.array.words);
         String randomStr = array[new Random().nextInt(array.length)];

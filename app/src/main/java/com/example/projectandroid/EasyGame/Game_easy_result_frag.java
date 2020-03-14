@@ -109,6 +109,7 @@ public class Game_easy_result_frag extends Fragment {
         void ResultScore(String score);
     }
 
+    //Compare number between them and display in green the right answer
     public void GameEz(double a, double b) {
 
         nbrItem1.setVisibility(View.VISIBLE);

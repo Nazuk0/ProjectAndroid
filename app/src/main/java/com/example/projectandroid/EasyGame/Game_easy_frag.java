@@ -65,7 +65,7 @@ public class Game_easy_frag extends Fragment {
         scoreString.setText("Score :");
         btnItem1.setText(getRandomString());
         btnItem2.setText(getRandomString());
-        while (btnItem2.getText().toString().equals(btnItem1.getText().toString())) {
+        while (btnItem2.getText().toString().equals(btnItem1.getText().toString())) {       //For duplicate
             btnItem2.setText(getRandomString());
         }
 
@@ -100,6 +100,7 @@ public class Game_easy_frag extends Fragment {
                 if (numberItem1 > numberItem2) {
                     finalScore++;
 
+                    //Send data for framgent result
                     msgListennerEasy.ResultEasy(btnItem1.getText().toString(),
                                             btnItem2.getText().toString(),
                                             nbrItem1.getText().toString(),
@@ -120,6 +121,7 @@ public class Game_easy_frag extends Fragment {
                 if (numberItem1 < numberItem2) {
                     finalScore++;
 
+                    //Send data for framgent result
                     msgListennerEasy.ResultEasy(btnItem1.getText().toString(),
                                             btnItem2.getText().toString(),
                                             nbrItem1.getText().toString(),
@@ -133,6 +135,7 @@ public class Game_easy_frag extends Fragment {
             }
         });
 
+        //Show the tab of high score
         cup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,6 +173,7 @@ public class Game_easy_frag extends Fragment {
         void ResultEasy(String btnItem1, String btnItem2, String nbrItem1, String nbrItem2, String score);
     }
 
+    //Method to give random string from array-list in xml
     public String getRandomString(){
         String[] array = getResources().getStringArray(R.array.words);
         String randomStr = array[new Random().nextInt(array.length)];

@@ -38,6 +38,7 @@ public class SQLitePlayer extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
+    //Delete player in DB with name
     public void deleteOne(Players player) {
         // Get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
@@ -46,6 +47,7 @@ public class SQLitePlayer extends SQLiteOpenHelper {
         db.close();
     }
 
+    //Get player in DB with name
     public Players getPlayer(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, // a. table
@@ -67,6 +69,7 @@ public class SQLitePlayer extends SQLiteOpenHelper {
         return player;
     }
 
+    //List of every players
     public ArrayList<Players> allPlayers() {
 
         ArrayList<Players> players = new ArrayList<>();
@@ -86,6 +89,7 @@ public class SQLitePlayer extends SQLiteOpenHelper {
         return players;
     }
 
+    //Add player in DB with name and score
     public void addPlayer(Players player) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

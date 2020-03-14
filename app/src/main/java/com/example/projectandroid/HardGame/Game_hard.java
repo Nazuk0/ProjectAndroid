@@ -33,6 +33,7 @@ public class Game_hard extends AppCompatActivity implements Game_hard_frag.onMsg
         }
     }
 
+    //Method to send data between fragments
     @Override
     public void ResultHard(String btnItem1, String btnItem2, String btnItem3, String btnItem4, String nbrItem1, String nbrItem2, String nbrItem3, String nbrItem4, String score) {
 
@@ -54,6 +55,7 @@ public class Game_hard extends AppCompatActivity implements Game_hard_frag.onMsg
         fragTransac.commit();
     }
 
+    //Method to get back score updated
     @Override
     public void ResultScore(String score) {
 

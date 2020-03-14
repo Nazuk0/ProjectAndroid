@@ -40,6 +40,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
+    //Delete item in DB with name
     public void deleteOne(Items item) {
         // Get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
@@ -48,6 +49,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    //Get item in DB with name
     public Items getItem(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, // a. table
@@ -70,6 +72,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
         return item;
     }
 
+    //List of every items
     public List<Items> allItems() {
 
         List<Items> items = new LinkedList<Items>();
@@ -90,6 +93,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
         return items;
     }
 
+    //add item in Db with name, number and image
     public void addItem(Items item) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

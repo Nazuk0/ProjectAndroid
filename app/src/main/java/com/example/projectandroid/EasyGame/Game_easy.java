@@ -33,6 +33,7 @@ public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsg
         }
     }
 
+    //Method to send data between fragments
     @Override
     public void ResultEasy(String btnItem1, String btnItem2, String nbrItem1, String nbrItem2, String score) {
 
@@ -50,6 +51,7 @@ public class Game_easy extends AppCompatActivity implements Game_easy_frag.onMsg
         fragTransac.commit();
     }
 
+    //Method to get back score updated
     @Override
     public void ResultScore(String score) {
 

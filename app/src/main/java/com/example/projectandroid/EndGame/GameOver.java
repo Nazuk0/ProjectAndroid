@@ -34,17 +34,21 @@ public class GameOver extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
 
+        //Connect DB
         dbPlayer = new SQLitePlayer(this);
         players = dbPlayer.allPlayers();
         Vibrator vib;
 
+        //Find ID in View
         nickname = findViewById(R.id.username);
         menu = findViewById(R.id.menu);
         save = findViewById(R.id.save);
 
+        //Get Final Score
         Bundle tabScore = getIntent().getExtras();
         score = tabScore.getString("score");
 
+        //Sensor vibrate
         vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vib.vibrate(1000);
 

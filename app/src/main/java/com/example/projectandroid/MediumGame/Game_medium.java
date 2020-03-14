@@ -33,6 +33,7 @@ public class Game_medium extends AppCompatActivity implements Game_medium_frag.o
         }
     }
 
+    //Method to send data between fragments
     @Override
     public void ResultMed(String btnItem1, String btnItem2, String btnItem3, String nbrItem1, String nbrItem2, String nbrItem3, String score) {
 
@@ -52,6 +53,7 @@ public class Game_medium extends AppCompatActivity implements Game_medium_frag.o
         fragTransac.commit();
     }
 
+    //Method to get back score updated
     @Override
     public void ResultScore(String score) {
 
